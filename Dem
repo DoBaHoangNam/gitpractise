@@ -1,0 +1,56 @@
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Main
+{
+    public class Counter implements ActionListener
+    {
+        private static JLabel counterLabel;
+        private static JTextField counterText;
+        private static JButton counterBuntTon;
+
+        {
+            //Creating Panel
+            JPanel panel = new JPanel();
+
+            //Creating Frame
+            JFrame frame = new JFrame();
+            frame.setTitle("Counter");
+            frame.setSize(390,130);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            frame.add(panel);
+            panel.setLayout(null);
+
+            //Creating Label
+            counterLabel = new JLabel("Counter");
+            counterLabel.setBounds(10,20,100,30);
+            panel.add(counterLabel);
+
+            //Creating Text field
+            counterText = new JTextField();
+            counterText.setBounds(90,20,150,30);
+            panel.add(counterText);
+
+            //Creating Button
+            counterBuntTon = new JButton("Count");
+            counterBuntTon.setBounds(270,20,80,30);
+            panel.add(counterBuntTon);
+            counterBuntTon.addActionListener(this);
+
+
+            frame.setVisible(true);
+
+        }
+
+        private int numClicks = 0;
+        public void actionPerformed(ActionEvent e)
+        {
+            numClicks++;
+            counterText.setText(String.valueOf(numClicks));
+        }
+
+    }
+
+}
